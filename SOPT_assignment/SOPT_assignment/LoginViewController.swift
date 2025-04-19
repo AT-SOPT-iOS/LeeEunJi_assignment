@@ -19,6 +19,29 @@ final class LoginViewController: UIViewController {
         return label
     }()
     
+    private let idTextField: UITextField = {
+        let textField = UITextField()
+        textField.attributedPlaceholder = NSAttributedString(string: "아이디", attributes: [.foregroundColor: UIColor.appColor(.gray2), .font: UIFont.appFont(.pretendardSemiBold, size: 15)])
+        textField.addLeftPadding()
+        textField.font = UIFont.appFont(.pretendardSemiBold, size: 15)
+        textField.textColor = UIColor.appColor(.gray2)
+        textField.backgroundColor = UIColor.appColor(.gray4)
+        textField.layer.cornerRadius = 3
+        return textField
+    }()
+        
+    private let passwordTextField: UITextField = {
+        let textField = UITextField()
+        textField.attributedPlaceholder = NSAttributedString(string: "비밀번호", attributes: [.foregroundColor: UIColor.appColor(.gray2), .font: UIFont.appFont(.pretendardSemiBold, size: 15)])
+        textField.addLeftPadding()
+        textField.font = UIFont.appFont(.pretendardSemiBold, size: 15)
+        textField.textColor = UIColor.appColor(.gray2)
+        textField.backgroundColor = UIColor.appColor(.gray4)
+        textField.layer.cornerRadius = 3
+        return textField
+    }()
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +54,7 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController {
     private func setLayout() {
-        [loginInfoLabel].forEach {
+        [loginInfoLabel, idTextField, passwordTextField].forEach {
             view.addSubview($0)
         }
     }
@@ -41,11 +64,33 @@ extension LoginViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(50)
         }
+        
+        idTextField.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(52)
+            make.top.equalTo(loginInfoLabel.snp.bottom).offset(31)
+        }
+        
+        passwordTextField.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(52)
+            make.top.equalTo(idTextField.snp.bottom).offset(7)
+        }
     }
 
     private func configureView() {
         self.view.backgroundColor = .black
         setLayout()
         setUpConstraints()
+    }
+}
+
+extension UITextField {
+    func addLeftPadding() {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 22, height: self.frame.height))
+        self.leftView = paddingView
+        self.leftViewMode = ViewMode.always
     }
 }
