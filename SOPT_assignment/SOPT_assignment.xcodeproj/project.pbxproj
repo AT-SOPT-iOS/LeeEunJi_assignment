@@ -56,7 +56,6 @@
 				CC2CBC114E5C811C7A223950 /* Pods-SOPT_assignment.debug.xcconfig */,
 				72F9DBA44A910A7511C25A15 /* Pods-SOPT_assignment.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
