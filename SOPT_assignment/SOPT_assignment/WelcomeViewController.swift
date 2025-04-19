@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class WelcomeViewController: UIViewController {
+    // MARK: - UI Components
     private let tvingLogoImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "tvingLogo")
@@ -35,13 +36,15 @@ class WelcomeViewController: UIViewController {
         button.addTarget(self, action: #selector(mainButtonTapped), for: .touchUpInside)
         return button
     }()
-
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
         configureView()
     }
 
+    // MARK: - Function
     @objc private func mainButtonTapped() {
         if self.navigationController == nil {
             self.dismiss(animated: true)
@@ -52,6 +55,7 @@ class WelcomeViewController: UIViewController {
 
 }
 
+// MARK: - Configure View
 extension WelcomeViewController {
     private func setLayout() {
         [tvingLogoImage, welcomeLabel, mainButton].forEach {

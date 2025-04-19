@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 final class LoginViewController: UIViewController {
-    
+    // MARK: - UI Components
     private let loginInfoLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.appColor(.gray1)
@@ -95,12 +95,13 @@ final class LoginViewController: UIViewController {
         return button
     }()
 
-
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
     }
 
+    // MARK: - Function
     @objc private func loginButtonDidTapped() {
         pushToWelcomeViewController()
     }
@@ -124,6 +125,7 @@ final class LoginViewController: UIViewController {
     
 }
 
+// MARK: - Configure View
 extension LoginViewController {
     private func setLayout() {
         [loginInfoLabel, idTextField, passwordTextField, loginButton, findIdButton, seperateView, findPasswordButton, signupGuideLabel,createNicknameButton].forEach {
