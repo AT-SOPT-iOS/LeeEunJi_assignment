@@ -38,6 +38,7 @@ class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: true)
         configureView()
     }
 
@@ -60,7 +61,7 @@ extension WelcomeViewController {
     
     private func setUpConstraints() {
         tvingLogoImage.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(14)
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
         }
         
