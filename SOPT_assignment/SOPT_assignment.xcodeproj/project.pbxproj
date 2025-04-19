@@ -20,6 +20,7 @@
 		D8E770562DB36D01000336AA /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E7703F2DB36D01000336AA /* UIFont+.swift */; };
 		D8E770572DB36D01000336AA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E770492DB36D01000336AA /* LoginViewController.swift */; };
 		D8E770582DB36D01000336AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E7704A2DB36D01000336AA /* ViewController.swift */; };
+		D8E7705A2DB3E6D6000336AA /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E770592DB3E6D6000336AA /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		D8E770482DB36D01000336AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8E770492DB36D01000336AA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D8E7704A2DB36D01000336AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D8E770592DB3E6D6000336AA /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		D8F458302DB1CDF70028139E /* SOPT_assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOPT_assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 				D8E770482DB36D01000336AA /* Info.plist */,
 				D8E770492DB36D01000336AA /* LoginViewController.swift */,
 				D8E7704A2DB36D01000336AA /* ViewController.swift */,
+				D8E770592DB3E6D6000336AA /* WelcomeViewController.swift */,
 			);
 			path = SOPT_assignment;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				D8E770562DB36D01000336AA /* UIFont+.swift in Sources */,
 				D8E770572DB36D01000336AA /* LoginViewController.swift in Sources */,
 				D8E770582DB36D01000336AA /* ViewController.swift in Sources */,
+				D8E7705A2DB3E6D6000336AA /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
