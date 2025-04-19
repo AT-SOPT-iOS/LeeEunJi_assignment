@@ -76,6 +76,7 @@ extension LoginViewController {
         loginInfoLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(50)
+            make.height.equalTo(37)
         }
         
         idTextField.snp.makeConstraints { make in
