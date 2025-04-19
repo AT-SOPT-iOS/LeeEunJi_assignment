@@ -41,20 +41,33 @@ final class LoginViewController: UIViewController {
         return textField
     }()
     
-
+    private let loginButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .black
+        button.layer.borderColor = UIColor.appColor(.gray2).cgColor
+        button.layer.borderWidth = 1
+        button.setTitle("로그인하기", for: .normal)
+        button.setTitleColor(UIColor.appColor(.gray2), for: .normal)
+        button.titleLabel?.font = UIFont.appFont(.pretendardSemiBold, size: 14)
+        button.layer.cornerRadius = 3
+        button.addTarget(self, action: #selector(loginButtonDidTapped), for: .touchUpInside)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
     }
 
-
+    @objc private func loginButtonDidTapped() {
+        print("")
+    }
     
 }
 
 extension LoginViewController {
     private func setLayout() {
-        [loginInfoLabel, idTextField, passwordTextField].forEach {
+        [loginInfoLabel, idTextField, passwordTextField, loginButton].forEach {
             view.addSubview($0)
         }
     }
@@ -77,6 +90,13 @@ extension LoginViewController {
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(52)
             make.top.equalTo(idTextField.snp.bottom).offset(7)
+        }
+        
+        loginButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(21)
+            make.height.equalTo(52)
         }
     }
 
