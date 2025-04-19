@@ -18,13 +18,13 @@ extension UIFont {
     static func appFont(_ name: FontAsset, size: Int) -> UIFont {
         let fontSize = CGFloat(size)
         switch name {
-        case .pretendardRegular:
+        case .pretendardRegular:    // 400
             return UIFont(name: "Pretendard-Regular", size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
-        case .pretendardMedium:
+        case .pretendardMedium:     // 500
             return UIFont(name: "Pretendard-Medium", size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
-        case .pretendardSemiBold:
+        case .pretendardSemiBold:   // 600
             return UIFont(name: "Pretendard-SemiBold", size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
-        case .pretendardBold:
+        case .pretendardBold:       // 700
             return UIFont(name: "Pretendard-Bold", size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
         }
     }
