@@ -24,18 +24,32 @@ class WelcomeViewController: UIViewController {
         label.font = UIFont.appFont(.pretendardBold, size: 23)
         return label
     }()
+    
+    private let mainButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.appColor(.red)
+        button.setTitle("메인으로", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.appFont(.pretendardSemiBold, size: 14)
+        button.layer.cornerRadius = 3
+        button.addTarget(self, action: #selector(mainButtonTapped), for: .touchUpInside)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
     }
 
+    @objc private func mainButtonTapped() {
+
+    }
 
 }
 
 extension WelcomeViewController {
     private func setLayout() {
-        [tvingLogoImage, welcomeLabel].forEach {
+        [tvingLogoImage, welcomeLabel, mainButton].forEach {
             view.addSubview($0)
         }
     }
@@ -49,6 +63,13 @@ extension WelcomeViewController {
         welcomeLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(tvingLogoImage.snp.bottom).offset(67)
+        }
+        
+        mainButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(52)
+            make.bottom.equalToSuperview().offset(-66)
         }
     }
 
