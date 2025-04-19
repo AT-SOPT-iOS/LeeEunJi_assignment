@@ -42,7 +42,11 @@ class WelcomeViewController: UIViewController {
     }
 
     @objc private func mainButtonTapped() {
-
+        if self.navigationController == nil {
+            self.dismiss(animated: true)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
 }

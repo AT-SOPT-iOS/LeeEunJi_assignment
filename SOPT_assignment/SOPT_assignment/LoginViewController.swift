@@ -102,7 +102,7 @@ final class LoginViewController: UIViewController {
     }
 
     @objc private func loginButtonDidTapped() {
-        print("")
+        pushToWelcomeViewController()
     }
     
     @objc private func findIdButtonDidTapped() {
@@ -115,6 +115,11 @@ final class LoginViewController: UIViewController {
     
     @objc private func createNicknameButtonDidTapped() {
         print("닉네임 만들러가기 버튼 눌림")
+    }
+    
+    private func pushToWelcomeViewController() {
+        let welcomeViewController = WelcomeViewController()
+        self.navigationController?.pushViewController(welcomeViewController, animated: true)
     }
     
 }
