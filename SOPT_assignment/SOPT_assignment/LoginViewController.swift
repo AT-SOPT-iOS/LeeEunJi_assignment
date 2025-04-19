@@ -77,6 +77,24 @@ final class LoginViewController: UIViewController {
         button.addTarget(self, action: #selector(findPasswordButtonDidTapped), for: .touchUpInside)
         return button
     }()
+    
+    private let signupGuideLabel: UILabel = {
+        let label = UILabel()
+        label.text = "아직 계정이 없으신가요?"
+        label.font = UIFont.appFont(.pretendardSemiBold, size: 14)
+        label.textColor = UIColor.appColor(.gray3)
+        return label
+    }()
+    
+    private let createNicknameButton: UIButton = {
+        let button = UIButton()
+        let title = "닉네임 만들러가기"
+        let attributedString = NSAttributedString(string: title, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue, .foregroundColor: UIColor.appColor(.gray2), .font: UIFont.appFont(.pretendardRegular, size: 14)])
+        button.setAttributedTitle(attributedString, for: .normal)
+        button.addTarget(self, action: #selector(createNicknameButtonDidTapped), for: .touchUpInside)
+        return button
+    }()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,11 +113,15 @@ final class LoginViewController: UIViewController {
         print("비밀번호 찾기 버튼 눌림")
     }
     
+    @objc private func createNicknameButtonDidTapped() {
+        print("닉네임 만들러가기 버튼 눌림")
+    }
+    
 }
 
 extension LoginViewController {
     private func setLayout() {
-        [loginInfoLabel, idTextField, passwordTextField, loginButton, findIdButton, seperateView, findPasswordButton].forEach {
+        [loginInfoLabel, idTextField, passwordTextField, loginButton, findIdButton, seperateView, findPasswordButton, signupGuideLabel,createNicknameButton].forEach {
             view.addSubview($0)
         }
     }
@@ -150,6 +172,19 @@ extension LoginViewController {
             make.leading.equalTo(seperateView.snp.trailing).offset(36)
             make.centerY.equalTo(seperateView.snp.centerY)
             make.width.greaterThanOrEqualTo(73)
+            make.height.greaterThanOrEqualTo(22)
+        }
+        
+        signupGuideLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(seperateView.snp.leading)
+            make.top.equalTo(findIdButton.snp.bottom).offset(28)
+            make.height.equalTo(22)
+        }
+        
+        createNicknameButton.snp.makeConstraints { make in
+            make.leading.equalTo(signupGuideLabel.snp.trailing).offset(33)
+            make.centerY.equalTo(signupGuideLabel.snp.centerY)
+            make.width.greaterThanOrEqualTo(97)
             make.height.greaterThanOrEqualTo(22)
         }
     }
