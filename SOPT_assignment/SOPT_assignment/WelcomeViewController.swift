@@ -19,7 +19,7 @@ class WelcomeViewController: UIViewController {
     private let welcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "??? 님\n반가워요!"
-        label.textColor = .white
+        label.textColor = UIColor.appColor(.gray1)
         label.textAlignment = .center
         label.numberOfLines = 2
         label.font = UIFont.appFont(.pretendardBold, size: 23)
