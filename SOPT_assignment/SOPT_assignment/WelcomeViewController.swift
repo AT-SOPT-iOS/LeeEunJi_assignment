@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class WelcomeViewController: UIViewController {
+    var idText: String? = nil
+    
     // MARK: - UI Components
     private let tvingLogoImage: UIImageView = {
         let imageView = UIImageView()
@@ -40,8 +42,8 @@ class WelcomeViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: true)
         configureView()
+        bindID()
     }
 
     // MARK: - Function
@@ -53,6 +55,14 @@ class WelcomeViewController: UIViewController {
         }
     }
 
+    private func bindID() {
+        guard let idText else { return }
+        self.welcomeLabel.text = "\(idText) 님 \n반가워요!"
+    }
+    
+    func setLabelText(idText: String?) {
+        self.idText = idText
+    }
 }
 
 // MARK: - Configure View
@@ -83,6 +93,7 @@ extension WelcomeViewController {
     }
 
     private func configureView() {
+        navigationController?.setNavigationBarHidden(true, animated: true)
         view.backgroundColor = .black
         setLayout()
         setUpConstraints()

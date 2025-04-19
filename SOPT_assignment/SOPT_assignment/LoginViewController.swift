@@ -98,7 +98,6 @@ final class LoginViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: true)
         configureView()
     }
 
@@ -121,6 +120,7 @@ final class LoginViewController: UIViewController {
     
     private func pushToWelcomeViewController() {
         let welcomeViewController = WelcomeViewController()
+        welcomeViewController.setLabelText(idText: idTextField.text)
         self.navigationController?.pushViewController(welcomeViewController, animated: true)
     }
     
@@ -198,7 +198,8 @@ extension LoginViewController {
     }
 
     private func configureView() {
-        self.view.backgroundColor = .black
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        view.backgroundColor = .black
         setLayout()
         setUpConstraints()
     }
