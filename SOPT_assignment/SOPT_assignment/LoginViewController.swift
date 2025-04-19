@@ -98,6 +98,7 @@ final class LoginViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: true)
         configureView()
     }
 
@@ -136,7 +137,7 @@ extension LoginViewController {
     private func setUpConstraints() {
         loginInfoLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(50)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(46)
             make.height.equalTo(37)
         }
         
