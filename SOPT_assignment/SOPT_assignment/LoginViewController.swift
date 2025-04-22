@@ -99,6 +99,8 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        idTextField.delegate = self
+        passwordTextField.delegate = self
     }
 
     // MARK: - Function
@@ -202,6 +204,17 @@ extension LoginViewController {
         view.backgroundColor = .black
         setLayout()
         setUpConstraints()
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.appColor(.gray2).cgColor
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderWidth = 0
     }
 }
 
