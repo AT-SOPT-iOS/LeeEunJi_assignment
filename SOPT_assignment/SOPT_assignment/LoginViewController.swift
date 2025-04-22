@@ -38,7 +38,16 @@ final class LoginViewController: UIViewController {
         textField.textColor = UIColor.appColor(.gray2)
         textField.backgroundColor = UIColor.appColor(.gray4)
         textField.layer.cornerRadius = 3
+        textField.isSecureTextEntry = true
         return textField
+    }()
+    
+    private let changeSecureButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "eyeGray"), for: .normal)
+        button.isHidden = true
+        button.addTarget(self, action: #selector(changeSecureButtonTapped), for: .touchUpInside)
+        return button
     }()
     
     private let loginButton: UIButton = {
@@ -120,6 +129,11 @@ final class LoginViewController: UIViewController {
         print("닉네임 만들러가기 버튼 눌림")
     }
     
+    @objc private func changeSecureButtonTapped() {
+        passwordTextField.isSecureTextEntry.toggle()
+        changeSecureButton.setImage(passwordTextField.isSecureTextEntry ? UIImage(named: "eyeGray") : UIImage(named: "eyeSlash"), for: .normal)
+    }
+    
     private func pushToWelcomeViewController() {
         let welcomeViewController = WelcomeViewController()
         welcomeViewController.setLabelText(idText: idTextField.text)
@@ -131,7 +145,7 @@ final class LoginViewController: UIViewController {
 // MARK: - Configure View
 extension LoginViewController {
     private func setLayout() {
-        [loginInfoLabel, idTextField, passwordTextField, loginButton, findIdButton, seperateView, findPasswordButton, signupGuideLabel,createNicknameButton].forEach {
+        [loginInfoLabel, idTextField, passwordTextField, changeSecureButton, loginButton, findIdButton, seperateView, findPasswordButton, signupGuideLabel,createNicknameButton].forEach {
             view.addSubview($0)
         }
     }
@@ -155,6 +169,12 @@ extension LoginViewController {
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(52)
             make.top.equalTo(idTextField.snp.bottom).offset(7)
+        }
+        
+        changeSecureButton.snp.makeConstraints { make in
+            make.centerY.equalTo(passwordTextField.snp.centerY)
+            make.trailing.equalTo(passwordTextField.snp.trailing).offset(-20)
+            make.width.height.equalTo(20)
         }
         
         loginButton.snp.makeConstraints { make in
@@ -211,6 +231,8 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.appColor(.gray2).cgColor
+        
+        changeSecureButton.isHidden = false
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
