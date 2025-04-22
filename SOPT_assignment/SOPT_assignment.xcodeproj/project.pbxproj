@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FF4D363EB4C72F4EFE84D27 /* Pods_SOPT_assignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 368212FD977EE81D4FB156ED /* Pods_SOPT_assignment.framework */; };
+		D818D1A42DB74384003F1D42 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D818D1A32DB74384003F1D42 /* UITextField+.swift */; };
 		D8E7704C2DB36D01000336AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8E7703B2DB36D01000336AA /* LaunchScreen.storyboard */; };
 		D8E7704D2DB36D01000336AA /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8E770412DB36D01000336AA /* Pretendard-Bold.otf */; };
 		D8E7704E2DB36D01000336AA /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8E770422DB36D01000336AA /* Pretendard-Medium.otf */; };
@@ -27,6 +28,7 @@
 		368212FD977EE81D4FB156ED /* Pods_SOPT_assignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOPT_assignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F9DBA44A910A7511C25A15 /* Pods-SOPT_assignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOPT_assignment.release.xcconfig"; path = "Target Support Files/Pods-SOPT_assignment/Pods-SOPT_assignment.release.xcconfig"; sourceTree = "<group>"; };
 		CC2CBC114E5C811C7A223950 /* Pods-SOPT_assignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOPT_assignment.debug.xcconfig"; path = "Target Support Files/Pods-SOPT_assignment/Pods-SOPT_assignment.debug.xcconfig"; sourceTree = "<group>"; };
+		D818D1A32DB74384003F1D42 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		D8E770392DB36D01000336AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8E7703A2DB36D01000336AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8E7703C2DB36D01000336AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				D8E7703E2DB36D01000336AA /* UIColor+.swift */,
 				D8E7703F2DB36D01000336AA /* UIFont+.swift */,
+				D818D1A32DB74384003F1D42 /* UITextField+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				D8E770532DB36D01000336AA /* AppDelegate.swift in Sources */,
 				D8E770542DB36D01000336AA /* SceneDelegate.swift in Sources */,
 				D8E770552DB36D01000336AA /* UIColor+.swift in Sources */,
+				D818D1A42DB74384003F1D42 /* UITextField+.swift in Sources */,
 				D8E770562DB36D01000336AA /* UIFont+.swift in Sources */,
 				D8E770572DB36D01000336AA /* LoginViewController.swift in Sources */,
 				D8E770582DB36D01000336AA /* ViewController.swift in Sources */,
