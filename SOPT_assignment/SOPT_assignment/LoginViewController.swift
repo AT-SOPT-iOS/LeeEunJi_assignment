@@ -42,6 +42,14 @@ final class LoginViewController: UIViewController {
         return textField
     }()
     
+    private let passwordClearButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "clearCircle"), for: .normal)
+        button.isHidden = true
+        button.addTarget(self, action: #selector(clearPasswordTextField), for: .touchUpInside)
+        return button
+    }()
+    
     private let changeSecureButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "eyeGray"), for: .normal)
@@ -129,6 +137,11 @@ final class LoginViewController: UIViewController {
         print("닉네임 만들러가기 버튼 눌림")
     }
     
+    @objc private func clearPasswordTextField() {
+        passwordTextField.text = ""
+        passwordTextField.becomeFirstResponder()
+    }
+    
     @objc private func changeSecureButtonTapped() {
         passwordTextField.isSecureTextEntry.toggle()
         changeSecureButton.setImage(passwordTextField.isSecureTextEntry ? UIImage(named: "eyeGray") : UIImage(named: "eyeSlash"), for: .normal)
@@ -145,7 +158,7 @@ final class LoginViewController: UIViewController {
 // MARK: - Configure View
 extension LoginViewController {
     private func setLayout() {
-        [loginInfoLabel, idTextField, passwordTextField, changeSecureButton, loginButton, findIdButton, seperateView, findPasswordButton, signupGuideLabel,createNicknameButton].forEach {
+        [loginInfoLabel, idTextField, passwordTextField, changeSecureButton, loginButton, findIdButton, seperateView, findPasswordButton, signupGuideLabel,passwordClearButton, createNicknameButton].forEach {
             view.addSubview($0)
         }
     }
@@ -169,6 +182,12 @@ extension LoginViewController {
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(52)
             make.top.equalTo(idTextField.snp.bottom).offset(7)
+        }
+        
+        passwordClearButton.snp.makeConstraints { make in
+            make.centerY.equalTo(passwordTextField.snp.centerY)
+            make.trailing.equalTo(changeSecureButton.snp.leading).offset(-16)
+            make.width.height.equalTo(20)
         }
         
         changeSecureButton.snp.makeConstraints { make in
@@ -232,10 +251,13 @@ extension LoginViewController: UITextFieldDelegate {
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.appColor(.gray2).cgColor
         
+        passwordClearButton.isHidden = false
         changeSecureButton.isHidden = false
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 0
+        passwordClearButton.isHidden = true
+        changeSecureButton.isHidden = true
     }
 }
