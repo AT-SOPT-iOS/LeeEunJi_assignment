@@ -47,6 +47,7 @@ final class LoginViewController: UIViewController {
         button.setImage(UIImage(named: "clearCircle"), for: .normal)
         button.isHidden = true
         button.addTarget(self, action: #selector(clearPasswordTextField), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
     
@@ -54,6 +55,7 @@ final class LoginViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(named: "eyeGray"), for: .normal)
         button.addTarget(self, action: #selector(changeSecureButtonTapped), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
     
@@ -67,6 +69,7 @@ final class LoginViewController: UIViewController {
         button.titleLabel?.font = UIFont.appFont(.pretendardSemiBold, size: 14)
         button.layer.cornerRadius = 3
         button.addTarget(self, action: #selector(loginButtonDidTapped), for: .touchUpInside)
+        button.isEnabled = false
         return button
     }()
     
