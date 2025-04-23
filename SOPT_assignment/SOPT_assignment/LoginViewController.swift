@@ -121,6 +121,8 @@ final class LoginViewController: UIViewController {
         idTextField.delegate = self
         passwordTextField.delegate = self
         hideKeyboardWhenTappedAround()
+        idTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
     }
 
     // MARK: - Function
@@ -148,6 +150,21 @@ final class LoginViewController: UIViewController {
     @objc private func changeSecureButtonTapped() {
         passwordTextField.isSecureTextEntry.toggle()
         changeSecureButton.setImage(passwordTextField.isSecureTextEntry ? UIImage(named: "eyeGray") : UIImage(named: "eyeSlash"), for: .normal)
+    }
+    
+    @objc private func textFieldsDidChange() {
+        let isIdNotEmpty = !(idTextField.text ?? "").isEmpty
+        let isPasswordNotEmpty = !(passwordTextField.text ?? "").isEmpty
+
+        if isIdNotEmpty && isPasswordNotEmpty {
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = UIColor.appColor(.red)
+            loginButton.setTitleColor(.white, for: .normal)
+        } else {
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = .black
+            loginButton.setTitleColor(UIColor.appColor(.gray2), for: .normal)
+        }
     }
     
     private func pushToWelcomeViewController() {
