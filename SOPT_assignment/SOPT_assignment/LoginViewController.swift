@@ -53,7 +53,6 @@ final class LoginViewController: UIViewController {
     private let changeSecureButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "eyeGray"), for: .normal)
-        button.isHidden = true
         button.addTarget(self, action: #selector(changeSecureButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -153,7 +152,6 @@ final class LoginViewController: UIViewController {
         welcomeViewController.setLabelText(idText: idTextField.text)
         self.navigationController?.pushViewController(welcomeViewController, animated: true)
     }
-    
 }
 
 // MARK: - Configure View
@@ -252,14 +250,19 @@ extension LoginViewController: UITextFieldDelegate {
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.appColor(.gray2).cgColor
         
-        passwordClearButton.isHidden = false
-        changeSecureButton.isHidden = false
+        if textField == passwordTextField {
+            passwordClearButton.isHidden = false
+            changeSecureButton.isHidden = false
+        }
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderWidth = 0
-        passwordClearButton.isHidden = true
-        changeSecureButton.isHidden = true
+        
+        if textField == passwordTextField {
+            passwordClearButton.isHidden = true
+            changeSecureButton.isHidden = true
+        }
     }
     
     func hideKeyboardWhenTappedAround() {
