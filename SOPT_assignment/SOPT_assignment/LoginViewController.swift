@@ -55,7 +55,7 @@ final class LoginViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(named: "clearCircle"), for: .normal)
         button.isHidden = true
-        button.addTarget(self, action: #selector(clearPasswordTextField), for: .touchUpInside)
+        button.addTarget(self, action: #selector(clearPasswordButtonTapped), for: .touchUpInside)
         button.isHidden = true
         return button
     }()
@@ -156,7 +156,7 @@ final class LoginViewController: UIViewController {
         idTextField.becomeFirstResponder()
     }
     
-    @objc private func clearPasswordTextField() {
+    @objc private func clearPasswordButtonTapped() {
         passwordTextField.text = ""
         passwordTextField.becomeFirstResponder()
     }
