@@ -21,7 +21,7 @@ final class LoginViewController: UIViewController {
     
     private let idTextField: UITextField = {
         let textField = UITextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "아이디", attributes: [.foregroundColor: UIColor.appColor(.gray2), .font: UIFont.appFont(.pretendardSemiBold, size: 15)])
+        textField.setCustomPlaceholder(text: "아이디", textColor: .appColor(.gray2), font: .appFont(.pretendardSemiBold, size: 15))
         textField.addLeftPadding()
         textField.font = UIFont.appFont(.pretendardSemiBold, size: 15)
         textField.textColor = UIColor.appColor(.gray2)
@@ -35,14 +35,12 @@ final class LoginViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(named: "clearCircle"), for: .normal)
         button.isHidden = true
-        button.addTarget(self, action: #selector(idClearButtonTapped), for: .touchUpInside)
-        button.isHidden = true
         return button
     }()
         
     private let passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.attributedPlaceholder = NSAttributedString(string: "비밀번호", attributes: [.foregroundColor: UIColor.appColor(.gray2), .font: UIFont.appFont(.pretendardSemiBold, size: 15)])
+        textField.setCustomPlaceholder(text: "비밀번호", textColor: .appColor(.gray2), font: .appFont(.pretendardSemiBold, size: 15))
         textField.addLeftPadding()
         textField.font = UIFont.appFont(.pretendardSemiBold, size: 15)
         textField.textColor = UIColor.appColor(.gray2)
@@ -57,15 +55,12 @@ final class LoginViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(named: "clearCircle"), for: .normal)
         button.isHidden = true
-        button.addTarget(self, action: #selector(clearPasswordButtonTapped), for: .touchUpInside)
-        button.isHidden = true
         return button
     }()
     
     private let changeSecureButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "eyeGray"), for: .normal)
-        button.addTarget(self, action: #selector(changeSecureButtonTapped), for: .touchUpInside)
         button.isHidden = true
         return button
     }()
@@ -79,7 +74,6 @@ final class LoginViewController: UIViewController {
         button.setTitleColor(UIColor.appColor(.gray2), for: .normal)
         button.titleLabel?.font = UIFont.appFont(.pretendardSemiBold, size: 14)
         button.layer.cornerRadius = 3
-        button.addTarget(self, action: #selector(loginButtonDidTapped), for: .touchUpInside)
         button.isEnabled = false
         return button
     }()
@@ -89,7 +83,6 @@ final class LoginViewController: UIViewController {
         button.setTitle("아이디 찾기", for: .normal)
         button.setTitleColor(UIColor.appColor(.gray2), for: .normal)
         button.titleLabel?.font = UIFont.appFont(.pretendardSemiBold, size: 14)
-        button.addTarget(self, action: #selector(findIdButtonDidTapped), for: .touchUpInside)
         return button
     }()
     
@@ -104,7 +97,6 @@ final class LoginViewController: UIViewController {
         button.setTitle("비밀번호 찾기", for: .normal)
         button.setTitleColor(UIColor.appColor(.gray2), for: .normal)
         button.titleLabel?.font = UIFont.appFont(.pretendardSemiBold, size: 14)
-        button.addTarget(self, action: #selector(findPasswordButtonDidTapped), for: .touchUpInside)
         return button
     }()
     
@@ -121,22 +113,37 @@ final class LoginViewController: UIViewController {
         let title = "닉네임 만들러가기"
         let attributedString = NSAttributedString(string: title, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue, .foregroundColor: UIColor.appColor(.gray2), .font: UIFont.appFont(.pretendardRegular, size: 14)])
         button.setAttributedTitle(attributedString, for: .normal)
-        button.addTarget(self, action: #selector(createNicknameButtonDidTapped), for: .touchUpInside)
         return button
     }()
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
         idTextField.delegate = self
         passwordTextField.delegate = self
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        view.backgroundColor = .black
+        setLayout()
+        setUpConstraints()
+        
+        setAction()
         hideKeyboardWhenTappedAround()
-        idTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
-        passwordTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
     }
 
     // MARK: - Function
+    private func setAction() {
+        idClearButton.addTarget(self, action: #selector(idClearButtonTapped), for: .touchUpInside)
+        passwordClearButton.addTarget(self, action: #selector(clearPasswordButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonDidTapped), for: .touchUpInside)
+        changeSecureButton.addTarget(self, action: #selector(changeSecureButtonTapped), for: .touchUpInside)
+        findIdButton.addTarget(self, action: #selector(findIdButtonDidTapped), for: .touchUpInside)
+        findPasswordButton.addTarget(self, action: #selector(findPasswordButtonDidTapped), for: .touchUpInside)
+        createNicknameButton.addTarget(self, action: #selector(createNicknameButtonDidTapped), for: .touchUpInside)
+        idTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldsDidChange), for: .editingChanged)
+    }
+    
     @objc private func loginButtonDidTapped() {
         pushToWelcomeViewController()
     }
@@ -193,9 +200,20 @@ final class LoginViewController: UIViewController {
 // MARK: - Configure View
 extension LoginViewController {
     private func setLayout() {
-        [loginInfoLabel, idTextField, idClearButton, passwordTextField, changeSecureButton, loginButton, findIdButton, seperateView, findPasswordButton, signupGuideLabel, passwordClearButton, createNicknameButton].forEach {
-            view.addSubview($0)
-        }
+        [
+            loginInfoLabel,
+            idTextField,
+            idClearButton,
+            passwordTextField,
+            changeSecureButton,
+            loginButton,
+            findIdButton,
+            seperateView,
+            findPasswordButton,
+            signupGuideLabel,
+            passwordClearButton,
+            createNicknameButton
+        ].forEach { view.addSubview($0) }
     }
     
     private func setUpConstraints() {
@@ -278,13 +296,6 @@ extension LoginViewController {
             make.height.greaterThanOrEqualTo(22)
         }
     }
-
-    private func configureView() {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        view.backgroundColor = .black
-        setLayout()
-        setUpConstraints()
-    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
@@ -309,15 +320,5 @@ extension LoginViewController: UITextFieldDelegate {
             passwordClearButton.isHidden = true
             changeSecureButton.isHidden = true
         }
-    }
-    
-    func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
 }

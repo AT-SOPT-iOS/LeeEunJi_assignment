@@ -8,8 +8,8 @@
 import UIKit
 import SnapKit
 
-class WelcomeViewController: UIViewController {
-    var idText: String? = nil
+final class WelcomeViewController: UIViewController {
+    private var idText: String? = nil
     
     // MARK: - UI Components
     private let tvingLogoImage: UIImageView = {
@@ -35,18 +35,25 @@ class WelcomeViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.appFont(.pretendardSemiBold, size: 14)
         button.layer.cornerRadius = 3
-        button.addTarget(self, action: #selector(mainButtonTapped), for: .touchUpInside)
         return button
     }()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        view.backgroundColor = .black
+        setLayout()
+        setUpConstraints()
+
         bindID()
     }
 
     // MARK: - Function
+    private func setAction() {
+        mainButton.addTarget(self, action: #selector(mainButtonTapped), for: .touchUpInside)
+    }
+    
     @objc private func mainButtonTapped() {
         if self.navigationController == nil {
             self.dismiss(animated: true)
@@ -90,12 +97,5 @@ extension WelcomeViewController {
             make.height.equalTo(52)
             make.bottom.equalToSuperview().offset(-66)
         }
-    }
-
-    private func configureView() {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        view.backgroundColor = .black
-        setLayout()
-        setUpConstraints()
     }
 }

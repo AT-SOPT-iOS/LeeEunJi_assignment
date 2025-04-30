@@ -13,4 +13,12 @@ extension UITextField {
         self.leftView = paddingView
         self.leftViewMode = ViewMode.always
     }
+    
+    func setCustomPlaceholder(text: String, textColor: UIColor, font: UIFont) {
+        self.clearButtonMode = .never
+        self.attributedPlaceholder = NSAttributedString(string: text, attributes: [
+            .foregroundColor: textColor,
+            .font: font
+        ])
+    }
 }
