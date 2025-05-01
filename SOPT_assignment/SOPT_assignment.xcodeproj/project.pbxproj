@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FF4D363EB4C72F4EFE84D27 /* Pods_SOPT_assignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 368212FD977EE81D4FB156ED /* Pods_SOPT_assignment.framework */; };
+		D80655FB2DC31410001215A2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80655FA2DC31410001215A2 /* MainViewController.swift */; };
 		D818D1A42DB74384003F1D42 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D818D1A32DB74384003F1D42 /* UITextField+.swift */; };
 		D84AF76E2DC2696200D060AD /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84AF76D2DC2696200D060AD /* UIViewController+.swift */; };
 		D8E7704C2DB36D01000336AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8E7703B2DB36D01000336AA /* LaunchScreen.storyboard */; };
@@ -29,6 +30,7 @@
 		368212FD977EE81D4FB156ED /* Pods_SOPT_assignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOPT_assignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F9DBA44A910A7511C25A15 /* Pods-SOPT_assignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOPT_assignment.release.xcconfig"; path = "Target Support Files/Pods-SOPT_assignment/Pods-SOPT_assignment.release.xcconfig"; sourceTree = "<group>"; };
 		CC2CBC114E5C811C7A223950 /* Pods-SOPT_assignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOPT_assignment.debug.xcconfig"; path = "Target Support Files/Pods-SOPT_assignment/Pods-SOPT_assignment.debug.xcconfig"; sourceTree = "<group>"; };
+		D80655FA2DC31410001215A2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D818D1A32DB74384003F1D42 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		D84AF76D2DC2696200D060AD /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		D8E770392DB36D01000336AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				D8E770492DB36D01000336AA /* LoginViewController.swift */,
 				D8E7704A2DB36D01000336AA /* ViewController.swift */,
 				D8E770592DB3E6D6000336AA /* WelcomeViewController.swift */,
+				D80655FA2DC31410001215A2 /* MainViewController.swift */,
 			);
 			path = SOPT_assignment;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				D8E770572DB36D01000336AA /* LoginViewController.swift in Sources */,
 				D8E770582DB36D01000336AA /* ViewController.swift in Sources */,
 				D8E7705A2DB3E6D6000336AA /* WelcomeViewController.swift in Sources */,
+				D80655FB2DC31410001215A2 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
