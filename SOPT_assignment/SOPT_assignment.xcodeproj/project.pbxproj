@@ -26,6 +26,9 @@
 		D8E1256B2DC4CB5B00CDA3F4 /* BaseballModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1256A2DC4CB5B00CDA3F4 /* BaseballModel.swift */; };
 		D8E125782DC4CD6600CDA3F4 /* BaseballCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E125752DC4CD6600CDA3F4 /* BaseballCollectionView.swift */; };
 		D8E125792DC4CD6600CDA3F4 /* BaseballCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E125762DC4CD6600CDA3F4 /* BaseballCollectionViewCell.swift */; };
+		D8E1257B2DC4CFF300CDA3F4 /* AnotherLogoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1257A2DC4CFF300CDA3F4 /* AnotherLogoModel.swift */; };
+		D8E1257F2DC4D10D00CDA3F4 /* AnotherLogoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1257E2DC4D10D00CDA3F4 /* AnotherLogoCollectionView.swift */; };
+		D8E125812DC4D11400CDA3F4 /* AnotherLogoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E125802DC4D11400CDA3F4 /* AnotherLogoCollectionViewCell.swift */; };
 		D8E7704C2DB36D01000336AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8E7703B2DB36D01000336AA /* LaunchScreen.storyboard */; };
 		D8E7704D2DB36D01000336AA /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8E770412DB36D01000336AA /* Pretendard-Bold.otf */; };
 		D8E7704E2DB36D01000336AA /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8E770422DB36D01000336AA /* Pretendard-Medium.otf */; };
@@ -63,6 +66,9 @@
 		D8E1256A2DC4CB5B00CDA3F4 /* BaseballModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseballModel.swift; sourceTree = "<group>"; };
 		D8E125752DC4CD6600CDA3F4 /* BaseballCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseballCollectionView.swift; sourceTree = "<group>"; };
 		D8E125762DC4CD6600CDA3F4 /* BaseballCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseballCollectionViewCell.swift; sourceTree = "<group>"; };
+		D8E1257A2DC4CFF300CDA3F4 /* AnotherLogoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLogoModel.swift; sourceTree = "<group>"; };
+		D8E1257E2DC4D10D00CDA3F4 /* AnotherLogoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLogoCollectionView.swift; sourceTree = "<group>"; };
+		D8E125802DC4D11400CDA3F4 /* AnotherLogoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherLogoCollectionViewCell.swift; sourceTree = "<group>"; };
 		D8E770392DB36D01000336AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8E7703A2DB36D01000336AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8E7703C2DB36D01000336AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +129,7 @@
 		D8E1253F2DC49AD600CDA3F4 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				D8E1257D2DC4D10A00CDA3F4 /* AnotherLogoCollectionView */,
 				D8E125772DC4CD6600CDA3F4 /* BaseballCollectionView */,
 				D8E125672DC4CA5300CDA3F4 /* PopularMovieCollectionView */,
 				D8E125572DC4C0F100CDA3F4 /* PopularLiveCollectionView */,
@@ -140,6 +147,7 @@
 				D8E1255C2DC4C18000CDA3F4 /* PopularLiveModel.swift */,
 				D8E1255E2DC4C80000CDA3F4 /* PopularMovieModel.swift */,
 				D8E1256A2DC4CB5B00CDA3F4 /* BaseballModel.swift */,
+				D8E1257A2DC4CFF300CDA3F4 /* AnotherLogoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +186,15 @@
 				D8E125762DC4CD6600CDA3F4 /* BaseballCollectionViewCell.swift */,
 			);
 			path = BaseballCollectionView;
+			sourceTree = "<group>";
+		};
+		D8E1257D2DC4D10A00CDA3F4 /* AnotherLogoCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D8E1257E2DC4D10D00CDA3F4 /* AnotherLogoCollectionView.swift */,
+				D8E125802DC4D11400CDA3F4 /* AnotherLogoCollectionViewCell.swift */,
+			);
+			path = AnotherLogoCollectionView;
 			sourceTree = "<group>";
 		};
 		D8E7703D2DB36D01000336AA /* Application */ = {
@@ -383,9 +400,12 @@
 			files = (
 				D8E125592DC4C10300CDA3F4 /* PopularLiveCollectionView.swift in Sources */,
 				D8E770532DB36D01000336AA /* AppDelegate.swift in Sources */,
+				D8E1257B2DC4CFF300CDA3F4 /* AnotherLogoModel.swift in Sources */,
 				D8E770542DB36D01000336AA /* SceneDelegate.swift in Sources */,
 				D8E125682DC4CA5300CDA3F4 /* PopularMovieCollectionView.swift in Sources */,
+				D8E1257F2DC4D10D00CDA3F4 /* AnotherLogoCollectionView.swift in Sources */,
 				D8E125692DC4CA5300CDA3F4 /* PopularMovieCollectionViewCell.swift in Sources */,
+				D8E125812DC4D11400CDA3F4 /* AnotherLogoCollectionViewCell.swift in Sources */,
 				D8E1255D2DC4C18000CDA3F4 /* PopularLiveModel.swift in Sources */,
 				D8E1255F2DC4C80000CDA3F4 /* PopularMovieModel.swift in Sources */,
 				D8E770552DB36D01000336AA /* UIColor+.swift in Sources */,
