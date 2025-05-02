@@ -23,12 +23,6 @@ final class CategoriesCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-//    private let underLineView: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = .white
-//        return view
-//    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setLayout()
@@ -49,15 +43,7 @@ final class CategoriesCollectionViewCell: UICollectionViewCell {
             $0.centerX.equalTo(self.snp.centerX)
             $0.height.equalTo(27)
         }
-        
-//        underLineView.snp.makeConstraints {
-//            $0.centerX.equalTo(categoryLabel.snp.centerX)
-//            $0.top.equalTo(categoryLabel.snp.bottom).offset(7)
-//            $0.height.equalTo(3)
-//            $0.width.equalTo(13)
-//        }
     }
-   
 }
 
 extension CategoriesCollectionViewCell {
