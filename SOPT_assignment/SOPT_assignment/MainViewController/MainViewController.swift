@@ -115,6 +115,15 @@ final class MainViewController: UIViewController {
         return collectionView
     }()
     
+    private let baseballCollectionView: BaseballCollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = .init(width: 80, height: 50)
+        flowLayout.minimumLineSpacing = 8
+        let collectionView = BaseballCollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        return collectionView
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -136,7 +145,7 @@ extension MainViewController {
         [tvingLogoImage, searchButton, tvingSmallLogoImage,
           categoriesCollectionView, yourNameImageView,
           todayTvingLabel, todayTvingCollectionView,
-         popularLiveLabel, seeMoreLiveButton, popularLiveCollectionView, popularMovieLabel, seeMoreMovieButton, popularMovieCollectionView
+         popularLiveLabel, seeMoreLiveButton, popularLiveCollectionView, popularMovieLabel, seeMoreMovieButton, popularMovieCollectionView, baseballCollectionView
         ].forEach {
             contentView.addSubview($0)
         }
@@ -234,6 +243,12 @@ extension MainViewController {
             $0.leading.equalTo(popularMovieLabel.snp.leading)
             $0.trailing.equalToSuperview()
             $0.height.equalTo(140)
+        }
+        
+        baseballCollectionView.snp.makeConstraints {
+            $0.top.equalTo(popularMovieCollectionView.snp.bottom).offset(28)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(50)
             $0.bottom.equalToSuperview().offset(-40)    // 스크롤뷰 바닥
         }
     }
