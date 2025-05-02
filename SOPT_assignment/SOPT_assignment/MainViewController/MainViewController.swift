@@ -30,7 +30,17 @@ final class MainViewController: UIViewController {
         imageView.image = UIImage(named: "smallTvingLogo")
         return imageView
     }()
-
+    
+    private let catogoriesCollectionView: CategoriesCollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = .init(width: 44, height: 40)
+        flowLayout.minimumLineSpacing = (UIScreen.main.bounds.width - (40 * 6 + 18 * 2)) / 5
+        let collectionView = CategoriesCollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.isScrollEnabled = false
+        return collectionView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -47,7 +57,7 @@ extension MainViewController {
 //            view.addSubview($0)
 //        }
         
-        [tvingLogoImage, searchButton, tvingSmallLogoImage].forEach {
+        [tvingLogoImage, searchButton, tvingSmallLogoImage, catogoriesCollectionView].forEach {
             view.addSubview($0)
         }
     }
@@ -76,6 +86,12 @@ extension MainViewController {
             $0.centerY.equalTo(tvingLogoImage.snp.centerY)
             $0.trailing.equalToSuperview().offset(-11)
             $0.width.height.equalTo(30)
+        }
+        
+        catogoriesCollectionView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(40)
+            $0.top.equalTo(tvingLogoImage.snp.bottom)
         }
     }
 }
