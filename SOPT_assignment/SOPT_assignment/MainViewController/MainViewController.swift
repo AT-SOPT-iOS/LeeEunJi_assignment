@@ -150,6 +150,35 @@ final class MainViewController: UIViewController {
         return collectionView
     }()
     
+    private let noticeBackgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.appColor(.tvingAnotherLogo)
+        view.layer.cornerRadius = 5
+        return view
+    }()
+    
+    private let noticeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "공지"
+        label.font = UIFont.appFont(.pretendardMedium, size: 11)
+        label.textColor = UIColor.appColor(.tvingNotice)
+        return label
+    }()
+    
+    private let noticeTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "티빙 계정 공유 정책 추가 안내"
+        label.font = UIFont.appFont(.pretendardMedium, size: 11)
+        label.textColor = UIColor.appColor(.tvingNoticeTitle)
+        return label
+    }()
+    
+    private let goToNoticeButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "goToNotice"), for: .normal)
+        return button
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -174,9 +203,13 @@ extension MainViewController {
          popularLiveLabel, seeMoreLiveButton, popularLiveCollectionView,
          popularMovieLabel, seeMoreMovieButton, popularMovieCollectionView,
          baseballCollectionView, anotherLogoCollectionView, gahyeonFavoriteLabel,
-         gaHyeonFavoriteCollectionView
+         gaHyeonFavoriteCollectionView, noticeBackgroundView
         ].forEach {
             contentView.addSubview($0)
+        }
+        
+        [noticeLabel, noticeTitleLabel, goToNoticeButton].forEach {
+            noticeBackgroundView.addSubview($0)
         }
 
     }
@@ -299,6 +332,28 @@ extension MainViewController {
             $0.trailing.equalToSuperview()
             $0.height.equalTo(90)
             $0.bottom.equalToSuperview().offset(-100)
+        }
+        
+        noticeBackgroundView.snp.makeConstraints {
+            $0.top.equalTo(gaHyeonFavoriteCollectionView.snp.bottom).offset(23)
+            $0.leading.trailing.equalToSuperview().inset(14)
+            $0.height.equalTo(50)
+        }
+        
+        noticeLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().offset(15)
+        }
+        
+        noticeTitleLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalTo(noticeLabel.snp.trailing).offset(8)
+        }
+        
+        goToNoticeButton.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(-16)
+            $0.width.equalTo(18)
         }
     }
 }

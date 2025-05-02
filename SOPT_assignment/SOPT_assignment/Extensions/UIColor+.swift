@@ -11,7 +11,7 @@ enum SceneColorAsset {
     case white, black
     case red
     case gray5, gray4, gray3, gray2, gray1
-    case tvingAnotherLogo
+    case tvingAnotherLogo, tvingNotice, tvingNoticeTitle
 }
 
 extension UIColor {
@@ -31,6 +31,8 @@ extension UIColor {
         case .gray1: return UIColor(hexCode: "D6D6D6")
             
         case .tvingAnotherLogo: return UIColor(hexCode: "212121")
+        case .tvingNotice: return UIColor(hexCode: "8C8C8C")
+        case .tvingNoticeTitle: return UIColor(hexCode: "D9D9D9")
         }
     }
 }
