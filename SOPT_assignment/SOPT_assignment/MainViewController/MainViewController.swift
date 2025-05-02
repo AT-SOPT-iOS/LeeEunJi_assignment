@@ -47,6 +47,14 @@ final class MainViewController: UIViewController {
         return imageView
     }()
     
+    private let todayTvingLabel: UILabel = {
+        let label = UILabel()
+        label.text = "오늘의 티빙 TOP 20"
+        label.font = UIFont.appFont(.pretendardBold, size: 15)
+        label.textColor = .white
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -63,7 +71,7 @@ extension MainViewController {
 //            view.addSubview($0)
 //        }
         
-        [tvingLogoImage, searchButton, tvingSmallLogoImage, categoriesCollectionView, yourNameImageView].forEach {
+        [tvingLogoImage, searchButton, tvingSmallLogoImage, categoriesCollectionView, yourNameImageView, todayTvingLabel].forEach {
             view.addSubview($0)
         }
     }
@@ -104,6 +112,12 @@ extension MainViewController {
             $0.top.equalTo(categoriesCollectionView.snp.bottom).offset(10)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(400)
+        }
+        
+        todayTvingLabel.snp.makeConstraints {
+            $0.top.equalTo(yourNameImageView.snp.bottom).offset(9)
+            $0.leading.equalToSuperview().offset(12)
+            $0.height.equalTo(23)
         }
     }
 }
