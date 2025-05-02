@@ -188,7 +188,8 @@ extension MainViewController {
         
         popularLiveCollectionView.snp.makeConstraints {
             $0.top.equalTo(popularLiveLabel.snp.bottom).offset(9)
-            $0.horizontalEdges.equalToSuperview()
+            $0.leading.equalTo(popularLiveLabel.snp.leading)
+            $0.trailing.equalToSuperview()
             $0.height.equalTo(140)
             $0.bottom.equalToSuperview().offset(-40)    // 스크롤뷰 바닥
         }

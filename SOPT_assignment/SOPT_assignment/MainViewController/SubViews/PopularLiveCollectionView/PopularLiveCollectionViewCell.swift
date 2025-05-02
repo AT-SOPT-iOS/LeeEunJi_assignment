@@ -16,6 +16,7 @@ final class PopularLiveCollectionViewCell: UICollectionViewCell {
     
     private let popularImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 3
         return imageView
     }()
