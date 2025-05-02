@@ -81,6 +81,15 @@ final class MainViewController: UIViewController {
         return button
     }()
     
+    private let popularLiveCollectionView: PopularLiveCollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = .init(width: 160, height: 140)
+        flowLayout.minimumLineSpacing = 7
+        let collectionView = PopularLiveCollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        return collectionView
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -104,7 +113,7 @@ extension MainViewController {
         [tvingLogoImage, searchButton, tvingSmallLogoImage,
           categoriesCollectionView, yourNameImageView,
           todayTvingLabel, todayTvingCollectionView,
-         popularLiveLabel, seeMoreButton
+         popularLiveLabel, seeMoreButton, popularLiveCollectionView
         ].forEach {
             contentView.addSubview($0)
         }
@@ -162,7 +171,6 @@ extension MainViewController {
             $0.top.equalTo(todayTvingLabel.snp.bottom).offset(9)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(160)
-            $0.bottom.equalToSuperview().offset(-40)
         }
         
         popularLiveLabel.snp.makeConstraints {
@@ -176,6 +184,13 @@ extension MainViewController {
             $0.trailing.equalToSuperview().offset(-4)
             $0.height.equalTo(20)
             $0.width.equalTo(44)
+        }
+        
+        popularLiveCollectionView.snp.makeConstraints {
+            $0.top.equalTo(popularLiveLabel.snp.bottom).offset(9)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(140)
+            $0.bottom.equalToSuperview().offset(-40)    // 스크롤뷰 바닥
         }
     }
 }

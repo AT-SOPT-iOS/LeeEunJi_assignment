@@ -1,5 +1,5 @@
 //
-//  CategoriesCollectionView.swift
+//  PopularLiveCollectionView.swift
 //  SOPT_assignment
 //
 //  Created by 이은지 on 5/2/25.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class CategoriesCollectionView: UICollectionView, UICollectionViewDataSource {
+final class PopularLiveCollectionView: UICollectionView, UICollectionViewDataSource {
     
-    private var itemData = CategoriesModel.dummy()
+    private var itemData = PopularLiveModel.dummy()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -23,7 +23,7 @@ final class CategoriesCollectionView: UICollectionView, UICollectionViewDataSour
     }
     
     private func register() {
-        register(CategoriesCollectionViewCell.self, forCellWithReuseIdentifier: CategoriesCollectionViewCell.identifier)
+        register(PopularLiveCollectionViewCell.self, forCellWithReuseIdentifier: PopularLiveCollectionViewCell.identifier)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -31,7 +31,7 @@ final class CategoriesCollectionView: UICollectionView, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath) as? CategoriesCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularLiveCollectionViewCell.identifier, for: indexPath) as? PopularLiveCollectionViewCell else { return UICollectionViewCell() }
         cell.dataBind(itemData[indexPath.item], itemRow: indexPath.item)
         return cell
     }
