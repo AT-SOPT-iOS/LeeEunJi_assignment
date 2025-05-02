@@ -133,6 +133,14 @@ final class MainViewController: UIViewController {
         return collectionView
     }()
     
+    private let gahyeonFavoriteLabel: UILabel = {
+        let label = UILabel()
+        label.text = "김가현PD의 인생작 TOP 5"
+        label.font = UIFont.appFont(.pretendardBold, size: 15)
+        label.textColor = .white
+        return label
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -152,9 +160,11 @@ extension MainViewController {
         scrollView.addSubview(contentView)
 
         [tvingLogoImage, searchButton, tvingSmallLogoImage,
-          categoriesCollectionView, yourNameImageView,
-          todayTvingLabel, todayTvingCollectionView,
-         popularLiveLabel, seeMoreLiveButton, popularLiveCollectionView, popularMovieLabel, seeMoreMovieButton, popularMovieCollectionView, baseballCollectionView, anotherLogoCollectionView
+         categoriesCollectionView, yourNameImageView,
+         todayTvingLabel, todayTvingCollectionView,
+         popularLiveLabel, seeMoreLiveButton, popularLiveCollectionView,
+         popularMovieLabel, seeMoreMovieButton, popularMovieCollectionView,
+         baseballCollectionView, anotherLogoCollectionView, gahyeonFavoriteLabel
         ].forEach {
             contentView.addSubview($0)
         }
@@ -266,6 +276,12 @@ extension MainViewController {
             $0.trailing.equalToSuperview()
             $0.height.equalTo(45)
             $0.bottom.equalToSuperview().offset(-100)
+        }
+        
+        gahyeonFavoriteLabel.snp.makeConstraints {
+            $0.top.equalTo(anotherLogoCollectionView.snp.bottom).offset(25)
+            $0.leading.equalToSuperview().offset(15)
+            $0.height.equalTo(23)
         }
     }
 }
