@@ -12,6 +12,7 @@ final class MainViewController: UIViewController {
     
     // MARK: - UI Components
     private let scrollView = UIScrollView()
+    private let contentView = UIView()
     
     private let tvingLogoImage: UIImageView = {
         let imageView = UIImageView()
@@ -64,6 +65,11 @@ final class MainViewController: UIViewController {
         return collectionView
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -76,24 +82,29 @@ final class MainViewController: UIViewController {
 
 extension MainViewController {
     private func setLayout() {
-//        [scrollView].forEach {
-//            view.addSubview($0)
-//        }
-        
-        [tvingLogoImage, searchButton, tvingSmallLogoImage, categoriesCollectionView, yourNameImageView, todayTvingLabel, todayTvingCollectionView].forEach {
-            view.addSubview($0)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+
+        [ tvingLogoImage, searchButton, tvingSmallLogoImage,
+          categoriesCollectionView, yourNameImageView,
+          todayTvingLabel, todayTvingCollectionView ].forEach {
+            contentView.addSubview($0)
         }
+
     }
     
     private func setUpConstraints() {
-//        scrollView.snp.makeConstraints {
-//            $0.top.equalToSuperview()
-//            $0.horizontalEdges.equalToSuperview()
-//            $0.bottom.equalTo(tvingSmallLogoImage.snp.bottom).offset(50)
-//        }
+        scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+
+        contentView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.width.equalToSuperview()
+        }
         
         tvingLogoImage.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(31)
+            $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.height.greaterThanOrEqualTo(78)
             $0.width.greaterThanOrEqualTo(191)
@@ -133,6 +144,7 @@ extension MainViewController {
             $0.top.equalTo(todayTvingLabel.snp.bottom).offset(9)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(160)
+            $0.bottom.equalToSuperview().offset(-40) // ✅ 가장 마지막 요소와 contentView의 bottom 연결
         }
     }
 }
