@@ -55,6 +55,15 @@ final class MainViewController: UIViewController {
         return label
     }()
     
+    private let todayTvingCollectionView: TodayTvingCollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = .init(width: 130, height: 160)
+        flowLayout.minimumLineSpacing = 12
+        let collectionView = TodayTvingCollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        return collectionView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -71,7 +80,7 @@ extension MainViewController {
 //            view.addSubview($0)
 //        }
         
-        [tvingLogoImage, searchButton, tvingSmallLogoImage, categoriesCollectionView, yourNameImageView, todayTvingLabel].forEach {
+        [tvingLogoImage, searchButton, tvingSmallLogoImage, categoriesCollectionView, yourNameImageView, todayTvingLabel, todayTvingCollectionView].forEach {
             view.addSubview($0)
         }
     }
@@ -118,6 +127,12 @@ extension MainViewController {
             $0.top.equalTo(yourNameImageView.snp.bottom).offset(9)
             $0.leading.equalToSuperview().offset(12)
             $0.height.equalTo(23)
+        }
+        
+        todayTvingCollectionView.snp.makeConstraints {
+            $0.top.equalTo(todayTvingLabel.snp.bottom).offset(9)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(160)
         }
     }
 }
