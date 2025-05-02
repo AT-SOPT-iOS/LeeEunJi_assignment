@@ -141,6 +141,15 @@ final class MainViewController: UIViewController {
         return label
     }()
     
+    private let gaHyeonFavoriteCollectionView: GaHyeonFavoriteCollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = .init(width: 160, height: 90)
+        flowLayout.minimumLineSpacing = 8
+        let collectionView = GaHyeonFavoriteCollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        return collectionView
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -164,7 +173,8 @@ extension MainViewController {
          todayTvingLabel, todayTvingCollectionView,
          popularLiveLabel, seeMoreLiveButton, popularLiveCollectionView,
          popularMovieLabel, seeMoreMovieButton, popularMovieCollectionView,
-         baseballCollectionView, anotherLogoCollectionView, gahyeonFavoriteLabel
+         baseballCollectionView, anotherLogoCollectionView, gahyeonFavoriteLabel,
+         gaHyeonFavoriteCollectionView
         ].forEach {
             contentView.addSubview($0)
         }
@@ -275,13 +285,20 @@ extension MainViewController {
             $0.leading.equalToSuperview().offset(15)
             $0.trailing.equalToSuperview()
             $0.height.equalTo(45)
-            $0.bottom.equalToSuperview().offset(-100)
         }
         
         gahyeonFavoriteLabel.snp.makeConstraints {
             $0.top.equalTo(anotherLogoCollectionView.snp.bottom).offset(25)
             $0.leading.equalToSuperview().offset(15)
             $0.height.equalTo(23)
+        }
+        
+        gaHyeonFavoriteCollectionView.snp.makeConstraints {
+            $0.top.equalTo(gahyeonFavoriteLabel.snp.bottom).offset(13)
+            $0.leading.equalTo(gahyeonFavoriteLabel.snp.leading)
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(90)
+            $0.bottom.equalToSuperview().offset(-100)
         }
     }
 }
