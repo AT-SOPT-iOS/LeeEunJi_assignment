@@ -14,6 +14,8 @@
 		D8E125432DC49B1900CDA3F4 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E125422DC49B1900CDA3F4 /* CategoriesCollectionViewCell.swift */; };
 		D8E125452DC49B2400CDA3F4 /* CategoriesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E125442DC49B2400CDA3F4 /* CategoriesCollectionView.swift */; };
 		D8E125492DC49DEF00CDA3F4 /* CategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E125482DC49DEF00CDA3F4 /* CategoriesModel.swift */; };
+		D8E125532DC4AF0000CDA3F4 /* TodayTvingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E125502DC4AF0000CDA3F4 /* TodayTvingCollectionView.swift */; };
+		D8E125542DC4AF0000CDA3F4 /* TodayTvingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E125512DC4AF0000CDA3F4 /* TodayTvingCollectionViewCell.swift */; };
 		D8E7704C2DB36D01000336AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8E7703B2DB36D01000336AA /* LaunchScreen.storyboard */; };
 		D8E7704D2DB36D01000336AA /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8E770412DB36D01000336AA /* Pretendard-Bold.otf */; };
 		D8E7704E2DB36D01000336AA /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D8E770422DB36D01000336AA /* Pretendard-Medium.otf */; };
@@ -39,6 +41,8 @@
 		D8E125422DC49B1900CDA3F4 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		D8E125442DC49B2400CDA3F4 /* CategoriesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionView.swift; sourceTree = "<group>"; };
 		D8E125482DC49DEF00CDA3F4 /* CategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModel.swift; sourceTree = "<group>"; };
+		D8E125502DC4AF0000CDA3F4 /* TodayTvingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTvingCollectionView.swift; sourceTree = "<group>"; };
+		D8E125512DC4AF0000CDA3F4 /* TodayTvingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTvingCollectionViewCell.swift; sourceTree = "<group>"; };
 		D8E770392DB36D01000336AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8E7703A2DB36D01000336AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8E7703C2DB36D01000336AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				D8E1253E2DC49AB300CDA3F4 /* CategoriesCollectionView */,
+				D8E125522DC4AF0000CDA3F4 /* TodayTvingCollectionView */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -110,6 +115,15 @@
 				D8E125482DC49DEF00CDA3F4 /* CategoriesModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D8E125522DC4AF0000CDA3F4 /* TodayTvingCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D8E125502DC4AF0000CDA3F4 /* TodayTvingCollectionView.swift */,
+				D8E125512DC4AF0000CDA3F4 /* TodayTvingCollectionViewCell.swift */,
+			);
+			path = TodayTvingCollectionView;
 			sourceTree = "<group>";
 		};
 		D8E7703D2DB36D01000336AA /* Application */ = {
@@ -321,6 +335,8 @@
 				D8E125492DC49DEF00CDA3F4 /* CategoriesModel.swift in Sources */,
 				D84AF76E2DC2696200D060AD /* UIViewController+.swift in Sources */,
 				D8E770572DB36D01000336AA /* LoginViewController.swift in Sources */,
+				D8E125532DC4AF0000CDA3F4 /* TodayTvingCollectionView.swift in Sources */,
+				D8E125542DC4AF0000CDA3F4 /* TodayTvingCollectionViewCell.swift in Sources */,
 				D8E770582DB36D01000336AA /* ViewController.swift in Sources */,
 				D8E125432DC49B1900CDA3F4 /* CategoriesCollectionViewCell.swift in Sources */,
 				D8E7705A2DB3E6D6000336AA /* WelcomeViewController.swift in Sources */,
