@@ -73,7 +73,7 @@ final class MainViewController: UIViewController {
         return label
     }()
     
-    private let seeMoreButton: UIButton = {
+    private let seeMoreLiveButton: UIButton = {
         let button = UIButton()
         button.setTitle("더보기", for: .normal)
         button.setTitleColor(UIColor.appColor(.gray2), for: .normal)
@@ -90,6 +90,22 @@ final class MainViewController: UIViewController {
         return collectionView
     }()
     
+    private let popularMovieLabel: UILabel = {
+        let label = UILabel()
+        label.text = "실시간 인기 영화"
+        label.font = UIFont.appFont(.pretendardBold, size: 15)
+        label.textColor = .white
+        return label
+    }()
+    
+    private let seeMoreMovieButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("더보기", for: .normal)
+        button.setTitleColor(UIColor.appColor(.gray2), for: .normal)
+        button.titleLabel?.font = UIFont.appFont(.pretendardMedium, size: 12)
+        return button
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -101,8 +117,6 @@ final class MainViewController: UIViewController {
         setLayout()
         setUpConstraints()
     }
-
-
 }
 
 extension MainViewController {
@@ -113,7 +127,7 @@ extension MainViewController {
         [tvingLogoImage, searchButton, tvingSmallLogoImage,
           categoriesCollectionView, yourNameImageView,
           todayTvingLabel, todayTvingCollectionView,
-         popularLiveLabel, seeMoreButton, popularLiveCollectionView
+         popularLiveLabel, seeMoreLiveButton, popularLiveCollectionView, popularMovieLabel, seeMoreMovieButton
         ].forEach {
             contentView.addSubview($0)
         }
@@ -179,7 +193,7 @@ extension MainViewController {
             $0.height.equalTo(23)
         }
         
-        seeMoreButton.snp.makeConstraints {
+        seeMoreLiveButton.snp.makeConstraints {
             $0.centerY.equalTo(popularLiveLabel.snp.centerY)
             $0.trailing.equalToSuperview().offset(-4)
             $0.height.equalTo(20)
@@ -192,6 +206,19 @@ extension MainViewController {
             $0.trailing.equalToSuperview()
             $0.height.equalTo(140)
             $0.bottom.equalToSuperview().offset(-40)    // 스크롤뷰 바닥
+        }
+        
+        popularMovieLabel.snp.makeConstraints {
+            $0.top.equalTo(popularLiveCollectionView.snp.bottom).offset(18)
+            $0.leading.equalToSuperview().offset(13)
+            $0.height.equalTo(23)
+        }
+        
+        seeMoreMovieButton.snp.makeConstraints {
+            $0.centerY.equalTo(popularMovieLabel.snp.centerY)
+            $0.trailing.equalToSuperview().offset(-4)
+            $0.height.equalTo(20)
+            $0.width.equalTo(44)
         }
     }
 }
