@@ -31,7 +31,7 @@ final class MainViewController: UIViewController {
         return imageView
     }()
     
-    private let catogoriesCollectionView: CategoriesCollectionView = {
+    private let categoriesCollectionView: CategoriesCollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = .init(width: 44, height: 40)
@@ -63,7 +63,7 @@ extension MainViewController {
 //            view.addSubview($0)
 //        }
         
-        [tvingLogoImage, searchButton, tvingSmallLogoImage, catogoriesCollectionView, yourNameImageView].forEach {
+        [tvingLogoImage, searchButton, tvingSmallLogoImage, categoriesCollectionView, yourNameImageView].forEach {
             view.addSubview($0)
         }
     }
@@ -94,14 +94,14 @@ extension MainViewController {
             $0.width.height.equalTo(30)
         }
         
-        catogoriesCollectionView.snp.makeConstraints {
+        categoriesCollectionView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(40)
             $0.top.equalTo(tvingLogoImage.snp.bottom)
         }
         
         yourNameImageView.snp.makeConstraints {
-            $0.top.equalTo(catogoriesCollectionView.snp.bottom).offset(10)
+            $0.top.equalTo(categoriesCollectionView.snp.bottom).offset(10)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(400)
         }
