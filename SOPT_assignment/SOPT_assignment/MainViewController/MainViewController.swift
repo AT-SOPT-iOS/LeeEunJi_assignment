@@ -106,6 +106,15 @@ final class MainViewController: UIViewController {
         return button
     }()
     
+    private let popularMovieCollectionView: PopularMovieCollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = .init(width: 98, height: 146)
+        flowLayout.minimumLineSpacing = 8
+        let collectionView = PopularMovieCollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        return collectionView
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -127,7 +136,7 @@ extension MainViewController {
         [tvingLogoImage, searchButton, tvingSmallLogoImage,
           categoriesCollectionView, yourNameImageView,
           todayTvingLabel, todayTvingCollectionView,
-         popularLiveLabel, seeMoreLiveButton, popularLiveCollectionView, popularMovieLabel, seeMoreMovieButton
+         popularLiveLabel, seeMoreLiveButton, popularLiveCollectionView, popularMovieLabel, seeMoreMovieButton, popularMovieCollectionView
         ].forEach {
             contentView.addSubview($0)
         }
@@ -205,7 +214,6 @@ extension MainViewController {
             $0.leading.equalTo(popularLiveLabel.snp.leading)
             $0.trailing.equalToSuperview()
             $0.height.equalTo(140)
-            $0.bottom.equalToSuperview().offset(-40)    // 스크롤뷰 바닥
         }
         
         popularMovieLabel.snp.makeConstraints {
@@ -219,6 +227,14 @@ extension MainViewController {
             $0.trailing.equalToSuperview().offset(-4)
             $0.height.equalTo(20)
             $0.width.equalTo(44)
+        }
+        
+        popularMovieCollectionView.snp.makeConstraints {
+            $0.top.equalTo(popularMovieLabel.snp.bottom).offset(13)
+            $0.leading.equalTo(popularMovieLabel.snp.leading)
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(140)
+            $0.bottom.equalToSuperview().offset(-40)    // 스크롤뷰 바닥
         }
     }
 }
