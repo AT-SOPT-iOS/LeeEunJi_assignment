@@ -41,6 +41,12 @@ final class MainViewController: UIViewController {
         return collectionView
     }()
     
+    private let yourNameImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "yourNameImage")
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -57,7 +63,7 @@ extension MainViewController {
 //            view.addSubview($0)
 //        }
         
-        [tvingLogoImage, searchButton, tvingSmallLogoImage, catogoriesCollectionView].forEach {
+        [tvingLogoImage, searchButton, tvingSmallLogoImage, catogoriesCollectionView, yourNameImageView].forEach {
             view.addSubview($0)
         }
     }
@@ -92,6 +98,12 @@ extension MainViewController {
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(40)
             $0.top.equalTo(tvingLogoImage.snp.bottom)
+        }
+        
+        yourNameImageView.snp.makeConstraints {
+            $0.top.equalTo(catogoriesCollectionView.snp.bottom).offset(10)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(400)
         }
     }
 }
