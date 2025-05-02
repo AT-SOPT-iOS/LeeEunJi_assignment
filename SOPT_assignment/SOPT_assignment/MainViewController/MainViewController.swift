@@ -179,6 +179,22 @@ final class MainViewController: UIViewController {
         return button
     }()
     
+    private let someLabel1: UILabel = {
+        let label = UILabel()
+        label.text = "고객문의 · 이용약관 · 개인정보처리방침"
+        label.font = UIFont.appFont(.pretendardMedium, size: 11)
+        label.textColor = UIColor.appColor(.tvingNotice)
+        return label
+    }()
+    
+    private let someLabel2: UILabel = {
+        let label = UILabel()
+        label.text = "사업자정보 · 인재채용"
+        label.font = UIFont.appFont(.pretendardMedium, size: 11)
+        label.textColor = UIColor.appColor(.tvingNotice)
+        return label
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -203,7 +219,8 @@ extension MainViewController {
          popularLiveLabel, seeMoreLiveButton, popularLiveCollectionView,
          popularMovieLabel, seeMoreMovieButton, popularMovieCollectionView,
          baseballCollectionView, anotherLogoCollectionView, gahyeonFavoriteLabel,
-         gaHyeonFavoriteCollectionView, noticeBackgroundView
+         gaHyeonFavoriteCollectionView, noticeBackgroundView,
+         someLabel1, someLabel2
         ].forEach {
             contentView.addSubview($0)
         }
@@ -331,7 +348,6 @@ extension MainViewController {
             $0.leading.equalTo(gahyeonFavoriteLabel.snp.leading)
             $0.trailing.equalToSuperview()
             $0.height.equalTo(90)
-            $0.bottom.equalToSuperview().offset(-100)
         }
         
         noticeBackgroundView.snp.makeConstraints {
@@ -354,6 +370,19 @@ extension MainViewController {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().offset(-16)
             $0.width.equalTo(18)
+        }
+        
+        someLabel1.snp.makeConstraints {
+            $0.top.equalTo(noticeBackgroundView.snp.bottom).offset(13)
+            $0.leading.equalToSuperview().offset(20)
+            $0.height.equalTo(18)
+        }
+        
+        someLabel2.snp.makeConstraints {
+            $0.top.equalTo(someLabel1.snp.bottom)
+            $0.leading.equalToSuperview().offset(20)
+            $0.height.equalTo(18)
+            $0.bottom.equalToSuperview().offset(-100)
         }
     }
 }
