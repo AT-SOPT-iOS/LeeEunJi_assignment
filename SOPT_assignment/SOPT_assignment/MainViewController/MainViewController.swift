@@ -65,6 +65,22 @@ final class MainViewController: UIViewController {
         return collectionView
     }()
     
+    private let popularLiveLabel: UILabel = {
+        let label = UILabel()
+        label.text = "실시간 인기 LIVE"
+        label.font = UIFont.appFont(.pretendardBold, size: 15)
+        label.textColor = .white
+        return label
+    }()
+    
+    private let seeMoreButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("더보기", for: .normal)
+        button.setTitleColor(UIColor.appColor(.gray2), for: .normal)
+        button.titleLabel?.font = UIFont.appFont(.pretendardMedium, size: 12)
+        return button
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -85,9 +101,11 @@ extension MainViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
 
-        [ tvingLogoImage, searchButton, tvingSmallLogoImage,
+        [tvingLogoImage, searchButton, tvingSmallLogoImage,
           categoriesCollectionView, yourNameImageView,
-          todayTvingLabel, todayTvingCollectionView ].forEach {
+          todayTvingLabel, todayTvingCollectionView,
+         popularLiveLabel, seeMoreButton
+        ].forEach {
             contentView.addSubview($0)
         }
 
@@ -144,7 +162,20 @@ extension MainViewController {
             $0.top.equalTo(todayTvingLabel.snp.bottom).offset(9)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(160)
-            $0.bottom.equalToSuperview().offset(-40) // ✅ 가장 마지막 요소와 contentView의 bottom 연결
+            $0.bottom.equalToSuperview().offset(-40)
+        }
+        
+        popularLiveLabel.snp.makeConstraints {
+            $0.top.equalTo(todayTvingCollectionView.snp.bottom).offset(20)
+            $0.leading.equalToSuperview().offset(13)
+            $0.height.equalTo(23)
+        }
+        
+        seeMoreButton.snp.makeConstraints {
+            $0.centerY.equalTo(popularLiveLabel.snp.centerY)
+            $0.trailing.equalToSuperview().offset(-4)
+            $0.height.equalTo(20)
+            $0.width.equalTo(44)
         }
     }
 }
