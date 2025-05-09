@@ -34,9 +34,7 @@ final class CategoriesCollectionViewCell: UICollectionViewCell {
     }
     
     private func setLayout() {
-        [categoryLabel].forEach {
-            self.addSubview($0)
-        }
+        self.addSubview(categoryLabel)
         
         categoryLabel.snp.makeConstraints {
             $0.top.equalTo(self.snp.top)

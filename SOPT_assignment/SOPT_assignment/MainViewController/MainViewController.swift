@@ -11,8 +11,8 @@ import SnapKit
 final class MainViewController: UIViewController {
     
     // MARK: - UI Components
-    private let scrollView = UIScrollView()
-    private let contentView = UIView()
+    private let mainScrollView = UIScrollView()
+    private let scrollContentContainerView = UIView()
     
     private let tvingLogoImage: UIImageView = {
         let imageView = UIImageView()
@@ -210,8 +210,8 @@ final class MainViewController: UIViewController {
 
 extension MainViewController {
     private func setLayout() {
-        view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
+        view.addSubview(mainScrollView)
+        mainScrollView.addSubview(scrollContentContainerView)
 
         [tvingLogoImage, searchButton, tvingSmallLogoImage,
          categoriesCollectionView, yourNameImageView,
@@ -222,7 +222,7 @@ extension MainViewController {
          gaHyeonFavoriteCollectionView, noticeBackgroundView,
          someLabel1, someLabel2
         ].forEach {
-            contentView.addSubview($0)
+            scrollContentContainerView.addSubview($0)
         }
         
         [noticeLabel, noticeTitleLabel, goToNoticeButton].forEach {
@@ -232,11 +232,11 @@ extension MainViewController {
     }
     
     private func setUpConstraints() {
-        scrollView.snp.makeConstraints {
+        mainScrollView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
 
-        contentView.snp.makeConstraints {
+        scrollContentContainerView.snp.makeConstraints {
             $0.edges.equalToSuperview()
             $0.width.equalToSuperview()
         }
@@ -261,7 +261,7 @@ extension MainViewController {
         }
         
         categoriesCollectionView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(40)
             $0.top.equalTo(tvingLogoImage.snp.bottom)
         }
@@ -352,7 +352,7 @@ extension MainViewController {
         
         noticeBackgroundView.snp.makeConstraints {
             $0.top.equalTo(gaHyeonFavoriteCollectionView.snp.bottom).offset(23)
-            $0.leading.trailing.equalToSuperview().inset(14)
+            $0.horizontalEdges.equalToSuperview().inset(14)
             $0.height.equalTo(50)
         }
         

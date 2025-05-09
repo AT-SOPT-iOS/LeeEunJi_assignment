@@ -29,15 +29,12 @@ final class BaseballCollectionViewCell: UICollectionViewCell {
         setLayout()
     }
     
-    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     private func setLayout() {
-        [backgroundImage].forEach {
-            self.addSubview($0)
-        }
+        self.addSubview(backgroundImage)
         
         backgroundImage.addSubview(baseballImage)
         
