@@ -46,6 +46,7 @@ final class WelcomeViewController: UIViewController {
         setLayout()
         setUpConstraints()
 
+        setAction()
         bindID()
     }
 
@@ -55,11 +56,13 @@ final class WelcomeViewController: UIViewController {
     }
     
     @objc private func mainButtonTapped() {
-        if self.navigationController == nil {
-            self.dismiss(animated: true)
-        } else {
-            self.navigationController?.popViewController(animated: true)
-        }
+        let mainViewController = MainViewController()
+        self.navigationController?.pushViewController(mainViewController, animated: true)
+//        if self.navigationController == nil {
+//            self.dismiss(animated: true)
+//        } else {
+//            self.navigationController?.popViewController(animated: true)
+//        }
     }
 
     private func bindID() {

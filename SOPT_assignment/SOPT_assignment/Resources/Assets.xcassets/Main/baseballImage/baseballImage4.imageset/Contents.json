@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "baseballImage4.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
