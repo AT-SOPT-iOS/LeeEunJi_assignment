@@ -42,6 +42,7 @@ struct MainView: View {
                 PopularMovieSectionView()
                 BaseballSectionView()
                 AnotherLogoSectionView()
+                GaHyeonFavoriteSectionView()
 
                 noticeView
                 footerView
@@ -62,7 +63,6 @@ struct MainView: View {
         }
         .padding(.horizontal)
     }
-
     
     private var noticeView: some View {
         HStack {
