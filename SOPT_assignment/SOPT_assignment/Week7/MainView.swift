@@ -41,6 +41,7 @@ struct MainView: View {
                 PopularLiveSectionView()
                 PopularMovieSectionView()
                 BaseballSectionView()
+                AnotherLogoSectionView()
 
                 noticeView
                 footerView
