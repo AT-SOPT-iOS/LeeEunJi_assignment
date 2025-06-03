@@ -38,6 +38,7 @@ struct MainView: View {
                     .clipped()
                 
                 TodayTvingSectionView()
+                PopularLiveSectionView()
 
                 noticeView
                 footerView
