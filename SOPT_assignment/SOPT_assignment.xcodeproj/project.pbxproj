@@ -92,6 +92,14 @@
 		D8F458302DB1CDF70028139E /* SOPT_assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOPT_assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D809086F2DEEC45000336B18 /* Week7 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Week7;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		D8F4582D2DB1CDF70028139E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -258,6 +266,7 @@
 		D8E7704B2DB36D01000336AA /* SOPT_assignment */ = {
 			isa = PBXGroup;
 			children = (
+				D809086F2DEEC45000336B18 /* Week7 */,
 				D8E1253B2DC49A9D00CDA3F4 /* MainViewController */,
 				D8E7703D2DB36D01000336AA /* Application */,
 				D8E770402DB36D01000336AA /* Extensions */,
@@ -312,6 +321,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D809086F2DEEC45000336B18 /* Week7 */,
 			);
 			name = SOPT_assignment;
 			productName = SOPT_assignment;
