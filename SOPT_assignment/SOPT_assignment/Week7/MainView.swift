@@ -19,6 +19,31 @@ struct MainView: View {
         Category(name: "뉴스")
     ]
     
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
+                
+                headerView
+                
+                CategoryTabView(
+                    categories: categories,
+                    selectedIndex: $selectedCategoryIndex
+                )
+                
+                Image(.todayTvingImage5)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(height: 400)
+                    .frame(maxWidth: .infinity)
+                    .clipped()
+
+                noticeView
+                footerView
+            }
+            .padding(.top, 16)
+        }
+        .background(Color.black.edgesIgnoringSafeArea(.all))
+    }
     
     private var headerView: some View {
         HStack {
