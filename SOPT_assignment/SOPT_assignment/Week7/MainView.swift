@@ -39,6 +39,7 @@ struct MainView: View {
                 
                 TodayTvingSectionView()
                 PopularLiveSectionView()
+                PopularMovieSectionView()
 
                 noticeView
                 footerView
