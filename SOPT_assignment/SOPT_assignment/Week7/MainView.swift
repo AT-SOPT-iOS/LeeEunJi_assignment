@@ -36,6 +36,8 @@ struct MainView: View {
                     .frame(height: 400)
                     .frame(maxWidth: .infinity)
                     .clipped()
+                
+                TodayTvingSectionView()
 
                 noticeView
                 footerView
